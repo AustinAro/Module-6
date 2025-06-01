@@ -1,59 +1,51 @@
 
-# 🐍 Python OOP: Polymorphism with Classes
+# 🐍 Python OOP: Operator Overloading (Less Than `<`)
 
 ## Name   : Austin Aro A
 ## Reg No : 212224040038
 
 ## 🎯 AIM
 
-To create two specific classes — `Beans` and `Mango`. Then, create a **generic function** that can accept any object and determine its **type** (Fruit or Vegetable) and **color**, using polymorphism.
+To write a Python program that demonstrates **operator overloading** by overloading the **less than (`<`)** operator using a custom class.
 
 ---
 
 ## 🧠 ALGORITHM
 
-1. **Create Class `Beans`**:
-   - Define `type()` method that prints `"Vegetable"`.
-   - Define `color()` method that prints `"Green"`.
+1. **Create Class `A`**:
+   - Define the `__init__()` method to initialize the object with a value `a`.
 
-2. **Create Class `Mango`**:
-   - Define `type()` method that prints `"Fruit"`.
-   - Define `color()` method that prints `"Yellow"`.
+2. **Overload the `<` Operator**:
+   - Define the `__lt__()` method with logic:
+     - If `self.a < o.a`, return `"ob1 is less than ob2"`
+     - Else, return `"ob2 is less than ob1"`
 
-3. **Define Generic Function `func(obj)`**:
-   - Call `obj.type()` and `obj.color()` — this works with both `Beans` and `Mango` objects, showcasing **polymorphism**.
+3. **Create Objects**:
+   - Instantiate two objects `ob1` and `ob2` with values.
 
-4. **Create Objects**:
-   - Instantiate `Beans` and `Mango`.
-   - Pass them to `func()` and execute the program.
+4. **Use `<` Operator**:
+   - Use `print(ob1 < ob2)` to trigger the overloaded behavior.
 
 ---
 
 ## 💻 Program
-```
-  class Beans ():
-     def type(self):
-        print("Vegetable")
-     def color(self):
-        print("Green")
+      class A:
+          def __init__(self, a):
+              self.a = a
+      
+          def __lt__(self, other):
+              if self.a < other.a:
+                  return "ob1 is less than ob2"
+              else:
+                  return "ob2 is less than ob1"
+      
+      ob1 = A(10)
+      ob2 = A(20)
+      print(ob1 < ob2)  # Should print "ob1 is less than ob2"
+      print(ob2 < ob1)  # Should print "ob2 is less than ob1"
 
-  class Mango ():
-     def type(self):
-        print("Fruit")
-     def color(self):
-        print("Yellow")
-
-     def func(obj):
-        obj.type()
-        obj.color()
-
-  obj_beans = Beans()
-  obj_mango = Mango()
-  func(obj_beans)
-  func(obj_mango)
-```
 ## Output
-![441832871-456ee9ef-9f30-4670-abc4-7b8f042c077a](https://github.com/user-attachments/assets/8415e42e-64a9-4ecb-8608-db02f4e49217)
+![Screenshot 2025-05-20 052520](https://github.com/user-attachments/assets/5daae670-5abd-499d-b431-0e6085e4d56f)
 
 ## Result
-Thus the program has been verified successfully
+ Thus, the program is verified successfully.
